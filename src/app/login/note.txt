@@ -1,0 +1,62 @@
+Data Binding in Angular
+--------------------------------------
+
+ts - component
+html - view
+
+1 : One Way Binding
+        1.1 : Component to view
+                1.1.1 : String Interpollation -> {{}}
+                1.1.2 : Property Binding      -> [property]="value" 
+
+        1.2 : View to Component
+                1.2.1 : Event Binding                                   -> (eventname)="method name()"
+                1.2.2 : Event Binding using $event                      -> (eventname)="method name($event)"
+                1.2.3 : Event Binding using Template Rendering Variable -> #variable
+
+2 : Two Way Binding
+        2.1 : ngmodel           [(ngmodel)]= "value"   
+                                FormsModule
+
+
+Redirection in Angular
+-----------------------------------------
+
+navigateByUrl -> method used to redirection
+
+Router        -> class in AppRoutingModule-(module)
+
+Dependancy Injection - to use a method of a class in another class
+---------------------------------------------------------------------
+-> in constructor
+-> steps           access specifier - public / private
+                           argument - variable
+                         class name - Classname
+                         private variable : Classname
+                                eg -> constructor(private router:Router) { }
+
+
+Angular Services 
+--------------------------------------------
+command line - ng g s servicename
+
+
+routerlink = "path"  -> to load the path
+routerlink = "/path" -> to load the path after coming back to the local host 
+
+
+Angular Directives
+---------------------------------------
+
+1.Structural Directives - to handle structured datas in view of a component
+
+        -ngFor - can directly apply in HTML to acces elements from array
+
+
+
+Form Validation in Angular
+--------------------------------
+
+We can create forms in two way  
+        1. Template Driven Form
+        2. Model Driven form

@@ -1,0 +1,25 @@
+
+    <div class="text-white ms-2 p-3">
+        <h1>Welcome {{user}}</h1>
+        <a routerLink="/transaction" class="text-white" style="text-decoration: none;">View transaction history</a>
+    </div>
+    <form (ngSubmit)="Deposit()">
+        <div id="style" class="container p-5 mt-5 w-50 text-center">
+            <h2>DEPOSIT</h2>
+            <input name="accountno" [(ngModel)]="dacno" id="daccno" type="text" class="form-control mt-3" [placeholder]="data">
+            <input name="psw" [(ngModel)]="dpsw" id="dpid" type="password" class="form-control mt-3" placeholder="Password">
+            <input name="amt" [(ngModel)]="damt" id="damt" type="number" class="form-control mt-3" placeholder="Amount">
+            <button type="submit" class="btn btn-dark mt-2">Deposit</button>
+        </div>
+    </form>
+
+
+    <form (ngSubmit)="Withdraw()">
+        <div id="style" class="container p-5 mt-5 w-50 text-center">
+            <h2 class="text-white">WITHDRAW</h2>
+            <input name="accountno" [(ngModel)]="wacno" id="waccno" type="text" class="form-control mt-3" [placeholder]="data">
+            <input name="psw" [(ngModel)]="wpsw" id="wpid" type="password" class="form-control mt-3" placeholder="Password">
+            <input name="amt" [(ngModel)]="wamt" id="wamt" type="number" class="form-control mt-3" placeholder="Amount">
+            <button type="submit" class="btn btn-dark mt-2">Withdraw</button>
+        </div>
+    </form> 

@@ -1,0 +1,17 @@
+
+
+<div class="container w-75 mt-4 p-5">
+    <h1 class="text-center text-white">Transation History</h1>
+    <table class="container border border-white w-75" style="border-radius: 30px;">
+        <thead class="border border-white">
+            <th class="border border-white text-center text-white">Type</th>
+            <th class="border border-white text-center text-white">Amount</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let acno of transaction">
+                <td class="border border-white text-center text-white">{{acno['type']}}</td>
+                <td class="border border-white text-center text-white">{{acno['amount']}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
