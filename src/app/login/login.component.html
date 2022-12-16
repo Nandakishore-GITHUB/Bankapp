@@ -14,11 +14,19 @@
     <div class="text-white ms-2 p-3">
         <h2>{{aim}}</h2>
     </div>
-    <form (ngSubmit)="login()">
+    <form (ngSubmit)="login()" [formGroup]="loginForm">
         <div id="style" class="container p-5 mt-5 w-25 text-center">
             <h1>LOGIN</h1>
-            <input name="accountno" [(ngModel)]="acno" id="accno" type="text" class="form-control mt-3" [placeholder]="data">
-            <input name="psw" [(ngModel)]="psw" id="pid" type="password" class="form-control mt-3" placeholder="Password">
+            <input name="accountno" formControlName="acno" id="accno" type="text" class="form-control mt-3" [placeholder]="data">
+            <div *ngIf="this.loginForm.get('acno')?.errors && this.loginForm.get('acno')?.touched">
+                <p  class="text-danger">Invalid or Incoorect account number</p>
+            </div>
+
+            <input name="psw" formControlName="psw" id="pid" type="password" class="form-control mt-3" placeholder="Password">
+            <div *ngIf="this.loginForm.get('psw')?.errors && this.loginForm.get('psw')?.touched">
+                <p class="text-danger">Invalid password</p>
+            </div>
+
             <button type="submit" class="btn btn-dark mt-2">Login</button>
         </div>
     </form>

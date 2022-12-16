@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 
@@ -11,19 +12,25 @@ export class RegisterComponent {
 
   data = "enter account number"
 
-  username=''
-  acno=''
-  psw=''
+  // username=''
+  // acno=''
+  // psw=''
 
-  constructor(private ds:DataService,private router : Router){ }
+  constructor(private ds:DataService,private router : Router , private fb:FormBuilder){ }
+
+  registerForm = this.fb.group({username:['',[Validators.required,Validators.pattern('[a-zA-Z]+')]],
+                                acno:['',[Validators.required,Validators.pattern('[0-9]+')]],
+                                psw:['',[Validators.required,Validators.pattern('[0-9]+')]]})
 
   register() {
      
-    var username = this.username
-    var acno = this.acno
-    var psw = this.psw
+    var username = this.registerForm.value.username
+    var acno = this.registerForm.value.acno
+    var psw = this.registerForm.value.psw
 
-    const result = this.ds.register(acno,username,psw)
+    if(this.registerForm.valid){
+
+          const result = this.ds.register(acno,username,psw)
 
     if (result) {
       alert('Registration Success')
@@ -32,5 +39,12 @@ export class RegisterComponent {
       alert('User already exixt')
       this.router.navigateByUrl('')
     }
+
+    }
+    else{
+      alert('invalid Form')
+    }
+
+
   }
 }

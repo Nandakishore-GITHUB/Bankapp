@@ -52,11 +52,64 @@ Angular Directives
 
         -ngFor - can directly apply in HTML to acces elements from array
 
+        -ngIF  - can directly apply in HTML to check a condition
+
 
 
 Form Validation in Angular
 --------------------------------
 
 We can create forms in two way  
-        1. Template Driven Form
+        1. Template Driven Form - created using html
+
         2. Model Driven form
+
+                - Reactive Form
+                ------------------------
+
+                        - ReactiveformsModule --> module used to create model form
+                               
+                                - FormBuilder --> class of ReactiveformsModule
+
+                                        1. Group
+                                        2. Array
+                                        3. Control
+        
+        Validate Model Form
+        -----------------------------------------
+
+        Validator - a class in angular which includes methods for apply validation
+
+                mainly used methods
+                - required 
+                - pattern
+                        example : [Validators.required,Validators.pattern('[a-zA-Z]+')]
+                        
+                        [a-zA-Z]     - from a-z and A-Z
+                        ^[a-zA-Z]    - any char other than a-z and A-Z
+                        
+                           +    - minimum count is 1 
+                           *    - minimum count is 0
+                        5,10    - minimum count is 5 and maximum count is 10
+
+                
+                Access Errors in Validator rule
+
+                        .errors  -> method to acces the output after mathing the rule when we apply a rule
+
+                        ex: this.registerForm.get('username')?.errors
+                                
+                                 -valid     -> empty response
+
+                                 -invalid   -> content
+
+
+                        if(this.registerForm.get('username')?.error){}   //*ngIF
+
+
+Local Storage in Angular
+----------------------------------
+
+- store         -> localStorage .setItem()
+- access        -> localStorage.getItem()
+- delete        -> localStorage.removeItem()
